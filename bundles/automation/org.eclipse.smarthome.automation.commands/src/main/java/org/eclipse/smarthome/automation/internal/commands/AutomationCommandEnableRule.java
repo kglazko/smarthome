@@ -89,10 +89,10 @@ public class AutomationCommandEnableRule extends AutomationCommand {
      * @param parameterValue is the value entered from command line.
      */
     private void getEnable(String parameterValue) {
-        if (parameterValue.equals("true")) {
+        if ("true".equals(parameterValue)) {
             enable = true;
             hasEnable = true;
-        } else if (parameterValue.equals("false")) {
+        } else if ("false".equals(parameterValue)) {
             enable = false;
             hasEnable = true;
         } else {

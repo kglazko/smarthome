@@ -77,7 +77,7 @@ public class CompareConditionHandler extends BaseModuleHandler<Condition>impleme
                     case "EQUALS":
                         // EQUALS
                         if (toCompare == null) {
-                            if (rightOperandString.equals("null") || rightOperandString.equals("")) {
+                            if ("null".equals(rightOperandString) || "".equals(rightOperandString)) {
                                 return true;
                             } else {
                                 return false;
@@ -133,7 +133,7 @@ public class CompareConditionHandler extends BaseModuleHandler<Condition>impleme
     }
 
     private Object getRightOperandValue(String rightOperandString2, Object toCompare) {
-        if (rightOperandString2.equals("null")) {
+        if ("null".equals(rightOperandString2)) {
             return rightOperandString2;
         }
         if (toCompare instanceof State) {

@@ -358,7 +358,7 @@ public abstract class AbstractResourceBundleProvider<E> implements ServiceTracke
             return Parser.FORMAT_JSON;
         }
         String fileExtesion = fileName.substring(fileExtesionStartIndex);
-        if (fileExtesion.equals("txt")) {
+        if ("txt".equals(fileExtesion)) {
             return Parser.FORMAT_JSON;
         }
         return fileExtesion;

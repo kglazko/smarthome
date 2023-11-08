@@ -37,7 +37,7 @@ public class WebAppConfig {
 
         if (configIconType == null) {
             configIconType = DEFAULT_ICON_TYPE;
-        } else if (!configIconType.equalsIgnoreCase("svg") && !configIconType.equalsIgnoreCase("png")) {
+        } else if (!"svg".equalsIgnoreCase(configIconType) && !"png".equalsIgnoreCase(configIconType)) {
             configIconType = DEFAULT_ICON_TYPE;
         }
 

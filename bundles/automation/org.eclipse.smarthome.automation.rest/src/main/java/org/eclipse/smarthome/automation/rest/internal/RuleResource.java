@@ -385,11 +385,11 @@ public class RuleResource implements RESTResource {
 
     protected Module getModule(Rule rule, String moduleCategory, String id) {
         Module module = null;
-        if (moduleCategory.equals("triggers")) {
+        if ("triggers".equals(moduleCategory)) {
             module = getTrigger(rule, id);
-        } else if (moduleCategory.equals("conditions")) {
+        } else if ("conditions".equals(moduleCategory)) {
             module = getCondition(rule, id);
-        } else if (moduleCategory.equals("actions")) {
+        } else if ("actions".equals(moduleCategory)) {
             module = getAction(rule, id);
         }
         return module;

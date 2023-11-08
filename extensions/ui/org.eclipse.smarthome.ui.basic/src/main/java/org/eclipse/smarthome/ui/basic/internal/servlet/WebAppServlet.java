@@ -139,7 +139,7 @@ public class WebAppServlet extends BaseServlet {
                     return;
                 }
                 result.append(renderer.processPage(sitemapName, sitemapName, label, sitemap.getChildren(), async));
-            } else if (!widgetId.equals("Colorpicker")) {
+            } else if (!"Colorpicker".equals(widgetId)) {
                 // we are on some subpage, so we have to render the children of the widget that has been selected
                 Widget w = renderer.getItemUIRegistry().getWidget(sitemap, widgetId);
                 if (w != null) {

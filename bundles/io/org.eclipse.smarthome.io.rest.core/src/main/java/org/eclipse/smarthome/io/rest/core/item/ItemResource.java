@@ -464,7 +464,7 @@ public class ItemResource implements RESTResource {
 
         GenericItem newItem = null;
 
-        if (item.type != null && item.type.equals("GroupItem")) {
+        if (item.type != null && "GroupItem".equals(item.type)) {
             newItem = new GroupItem(itemname);
         } else {
             String itemType = item.type.substring(0, item.type.length() - 4);

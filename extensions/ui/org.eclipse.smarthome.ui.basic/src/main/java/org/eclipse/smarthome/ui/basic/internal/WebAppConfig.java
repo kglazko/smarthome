@@ -52,7 +52,7 @@ public class WebAppConfig {
         for (String key : cssClasses.keySet()) {
             Boolean value = cssDefaultValues.get(key);
             if (configProps.containsKey(key)) {
-                value = ((String) configProps.get(key)).equalsIgnoreCase("true");
+                value = "true".equalsIgnoreCase(((String) configProps.get(key)));
             }
             if (value) {
                 cssClassList.add(cssClasses.get(key));
@@ -70,7 +70,7 @@ public class WebAppConfig {
 
         if (configIconType == null) {
             configIconType = DEFAULT_ICON_TYPE;
-        } else if (!configIconType.equalsIgnoreCase("svg") && !configIconType.equalsIgnoreCase("png")) {
+        } else if (!"svg".equalsIgnoreCase(configIconType) && !"png".equalsIgnoreCase(configIconType)) {
             configIconType = DEFAULT_ICON_TYPE;
         }
 

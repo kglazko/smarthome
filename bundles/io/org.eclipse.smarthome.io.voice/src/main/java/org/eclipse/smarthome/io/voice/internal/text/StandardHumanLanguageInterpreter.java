@@ -58,7 +58,7 @@ public class StandardHumanLanguageInterpreter implements HumanLanguageInterprete
         }
 
         String first = tokens[0];
-        if (first.equals("turn") && tokens.length >= 3) {
+        if ("turn".equals(first) && tokens.length >= 3) {
 
             // parse
             int pos = 1, end = tokens.length;

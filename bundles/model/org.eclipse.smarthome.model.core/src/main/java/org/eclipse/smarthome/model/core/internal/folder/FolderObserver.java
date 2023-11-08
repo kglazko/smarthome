@@ -133,7 +133,7 @@ public class FolderObserver extends AbstractWatchService implements ManagedServi
             while (keys.hasMoreElements()) {
 
                 String foldername = (String) keys.nextElement();
-                if (foldername.equals("service.pid"))
+                if ("service.pid".equals(foldername))
                     continue;
 
                 String[] fileExts = ((String) config.get(foldername)).split(",");

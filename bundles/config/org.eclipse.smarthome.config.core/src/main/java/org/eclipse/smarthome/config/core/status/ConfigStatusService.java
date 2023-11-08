@@ -46,7 +46,7 @@ public final class ConfigStatusService implements ConfigStatusCallback {
      * @throws IllegalArgumentException if given entityId is null or empty
      */
     public ConfigStatusInfo getConfigStatus(String entityId, Locale locale) {
-        if (entityId == null || entityId.equals("")) {
+        if (entityId == null || "".equals(entityId)) {
             throw new IllegalArgumentException("EntityId must not be null or empty");
         }
         Locale loc = locale != null ? locale : Locale.getDefault();
