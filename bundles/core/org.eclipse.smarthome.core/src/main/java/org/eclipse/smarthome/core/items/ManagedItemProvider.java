@@ -176,7 +176,7 @@ public class ManagedItemProvider extends AbstractManagedProvider<Item, String, P
     protected Item toElement(String itemName, PersistedItem persistedItem) {
         ActiveItem item = null;
 
-        if (persistedItem.itemType.equals(ITEM_TYPE_GROUP)) {
+        if (ITEM_TYPE_GROUP.equals(persistedItem.itemType)) {
             if (persistedItem.baseItemType != null) {
                 GenericItem baseItem = createItem(persistedItem.baseItemType, itemName);
                 item = new GroupItem(itemName, baseItem);

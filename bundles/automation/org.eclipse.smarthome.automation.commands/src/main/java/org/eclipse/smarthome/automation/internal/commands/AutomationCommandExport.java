@@ -182,7 +182,7 @@ public class AutomationCommandExport extends AutomationCommand {
             }
             if (parameterValues[i].equals(OPTION_ST)) {
                 st = true;
-            } else if (parameterValues[i].equalsIgnoreCase(OPTION_P)) {
+            } else if (OPTION_P.equalsIgnoreCase(parameterValues[i])) {
                 i++;
                 if (i >= parameterValues.length) {
                     return String.format("The option [%s] should be followed by value for the parser type.", OPTION_P);

@@ -73,7 +73,7 @@ public class ModuleTypeResource implements RESTResource {
         Locale locale = LocaleUtil.getLocale(language);
         Set<String> tags = tagList != null ? new HashSet<String>(Arrays.asList(tagList.split(","))) : null;
         List<ModuleType> allModules = new ArrayList<ModuleType>();
-        if (type == null || type.equals("trigger")) {
+        if (type == null || "trigger".equals(type)) {
             if (tags == null) {
                 allModules.addAll(moduleTypeRegistry.getAll(TriggerType.class, locale));
             } else {
@@ -81,14 +81,14 @@ public class ModuleTypeResource implements RESTResource {
                 allModules.addAll(triggers);
             }
         }
-        if (type == null || type.equals("condition")) {
+        if (type == null || "condition".equals(type)) {
             if (tags == null) {
                 allModules.addAll(moduleTypeRegistry.getAll(ConditionType.class, locale));
             } else {
                 allModules.addAll(moduleTypeRegistry.getByTags(tags, locale));
             }
         }
-        if (type == null || type.equals("action")) {
+        if (type == null || "action".equals(type)) {
             if (tags == null) {
                 allModules.addAll(moduleTypeRegistry.getAll(ActionType.class, locale));
             } else {

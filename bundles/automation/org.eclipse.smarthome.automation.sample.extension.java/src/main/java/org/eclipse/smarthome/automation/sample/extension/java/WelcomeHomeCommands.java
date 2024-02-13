@@ -144,7 +144,7 @@ public class WelcomeHomeCommands extends AbstractConsoleCommandExtension {
             console.println("Missing required parameters");
             return;
         }
-        if (params[0] != null && (params[0].equalsIgnoreCase("on") || params[0].equalsIgnoreCase("off"))) {
+        if (params[0] != null && ("on".equalsIgnoreCase(params[0]) || "off".equalsIgnoreCase(params[0]))) {
             currentState = params[0];
         } else {
             console.println("Invalid parameter value of the parameter \"currentState\". Should be \"on\" or \"off\"");
@@ -178,7 +178,7 @@ public class WelcomeHomeCommands extends AbstractConsoleCommandExtension {
             console.println("Missing required parameters");
             return;
         }
-        if (params[0] != null && (params[0].equalsIgnoreCase("on") || params[0].equalsIgnoreCase("off"))) {
+        if (params[0] != null && ("on".equalsIgnoreCase(params[0]) || "off".equalsIgnoreCase(params[0]))) {
             currentState = params[0];
         } else {
             console.println("Invalid parameter value of the parameter \"currentState\". Should be \"on\" or \"off\"");

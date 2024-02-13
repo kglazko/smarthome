@@ -14,6 +14,8 @@
 */
 package org.eclipse.smarthome.automation.internal.commands;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -100,7 +102,7 @@ public class AutomationCommandImport extends AutomationCommand {
      */
     private URL initURL(String parameterValue) {
         try {
-            return new URL(parameterValue);
+            return Urls.create(parameterValue, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException mue) {
             File f = new File(parameterValue);
             if (f.isFile()) {
@@ -141,7 +143,7 @@ public class AutomationCommandImport extends AutomationCommand {
             }
             if (parameterValues[i].equals(OPTION_ST)) {
                 st = true;
-            } else if (parameterValues[i].equalsIgnoreCase(OPTION_P)) {
+            } else if (OPTION_P.equalsIgnoreCase(parameterValues[i])) {
                 i++;
                 if (i >= parameterValues.length) {
                     return String.format("The option [%s] should be followed by value for the parser type.", OPTION_P);

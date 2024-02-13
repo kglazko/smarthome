@@ -194,7 +194,7 @@ public class WemoHandler extends BaseThingHandler implements UpnpIOParticipant, 
 
             this.stateMap.put(variable, value);
 
-            if (getThing().getThingTypeUID().getId().equals("insight")) {
+            if ("insight".equals(getThing().getThingTypeUID().getId())) {
                 String insightParams = stateMap.get("InsightParams");
 
                 if (insightParams != null) {
@@ -203,7 +203,7 @@ public class WemoHandler extends BaseThingHandler implements UpnpIOParticipant, 
 
                     if (splitInsightParams[0] != null) {
                         OnOffType binaryState = null;
-                        binaryState = splitInsightParams[0].equals("0") ? OnOffType.OFF : OnOffType.ON;
+                        binaryState = "0".equals(splitInsightParams[0]) ? OnOffType.OFF : OnOffType.ON;
                         if (binaryState != null) {
                             logger.trace("New InsightParam binaryState '{}' for device '{}' received", binaryState,
                                     getThing().getUID());
@@ -321,12 +321,12 @@ public class WemoHandler extends BaseThingHandler implements UpnpIOParticipant, 
                 }
 
             } else {
-                State state = stateMap.get("BinaryState").equals("0") ? OnOffType.OFF : OnOffType.ON;
+                State state = "0".equals(stateMap.get("BinaryState")) ? OnOffType.OFF : OnOffType.ON;
 
                 logger.debug("State '{}' for device '{}' received", state, getThing().getUID());
 
                 if (state != null) {
-                    if (getThing().getThingTypeUID().getId().equals("motion")) {
+                    if ("motion".equals(getThing().getThingTypeUID().getId())) {
                         updateState(new ChannelUID(getThing().getThingTypeUID(), getThing().getUID(),
                                 CHANNEL_MOTIONDETECTION), state);
                     } else {
@@ -397,7 +397,7 @@ public class WemoHandler extends BaseThingHandler implements UpnpIOParticipant, 
         String actionService = "basicevent";
         String value = null;
 
-        if (getThing().getThingTypeUID().getId().equals("insight")) {
+        if ("insight".equals(getThing().getThingTypeUID().getId())) {
             action = "GetInsightParams";
             variable = "InsightParams";
             actionService = "insight";
@@ -415,7 +415,7 @@ public class WemoHandler extends BaseThingHandler implements UpnpIOParticipant, 
                 String wemoCallResponse = WemoHttpCall.executeCall(wemoURL, soapHeader, content);
                 if (wemoCallResponse != null) {
                     logger.trace("State response '{}' for device '{}' received", wemoCallResponse, getThing().getUID());
-                    if (variable.equals("InsightParams")) {
+                    if ("InsightParams".equals(variable)) {
                         value = StringUtils.substringBetween(wemoCallResponse, "<InsightParams>", "</InsightParams>");
                     } else {
                         value = StringUtils.substringBetween(wemoCallResponse, "<BinaryState>", "</BinaryState>");

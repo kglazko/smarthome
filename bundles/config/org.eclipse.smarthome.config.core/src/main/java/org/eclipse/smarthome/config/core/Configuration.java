@@ -72,15 +72,15 @@ public class Configuration {
                 }
 
                 try {
-                    if (value != null && value instanceof BigDecimal && !typeName.equals("BigDecimal")) {
+                    if (value != null && value instanceof BigDecimal && !"BigDecimal".equals(typeName)) {
                         BigDecimal bdValue = (BigDecimal) value;
-                        if (typeName.equalsIgnoreCase("Float")) {
+                        if ("Float".equalsIgnoreCase(typeName)) {
                             value = bdValue.floatValue();
-                        } else if (typeName.equalsIgnoreCase("Double")) {
+                        } else if ("Double".equalsIgnoreCase(typeName)) {
                             value = bdValue.doubleValue();
-                        } else if (typeName.equalsIgnoreCase("Long")) {
+                        } else if ("Long".equalsIgnoreCase(typeName)) {
                             value = bdValue.longValue();
-                        } else if (typeName.equalsIgnoreCase("Integer") || typeName.equalsIgnoreCase("int")) {
+                        } else if ("Integer".equalsIgnoreCase(typeName) || "int".equalsIgnoreCase(typeName)) {
                             value = bdValue.intValue();
                         }
                     }

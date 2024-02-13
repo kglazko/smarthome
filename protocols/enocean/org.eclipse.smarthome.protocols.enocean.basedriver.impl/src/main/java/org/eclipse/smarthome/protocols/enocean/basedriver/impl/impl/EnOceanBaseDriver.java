@@ -83,7 +83,7 @@ public class EnOceanBaseDriver implements EnOceanPacketListener, ServiceTrackerC
         String hostPath = System.getProperty("org.osgi.service.enocean.host.path", "/dev/ttyUSB0");
         Logger.i(TAG, "initial host path : " + hostPath);
         if (hostPath != null && hostPath != "") {
-            if (hostPath.equals(":testcase:")) {
+            if (":testcase:".equals(hostPath)) {
                 host = new EnOceanHostTestImpl(hostPath, bc);
             } else {
                 host = new EnOceanHostSerialImpl(hostPath, bc);

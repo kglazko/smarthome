@@ -46,27 +46,27 @@ public class CoreItemFactory implements ItemFactory {
      */
     @Override
     public GenericItem createItem(String itemTypeName, String itemName) {
-        if (itemTypeName.equals(SWITCH))
+        if (SWITCH.equals(itemTypeName))
             return new SwitchItem(itemName);
-        if (itemTypeName.equals(ROLLERSHUTTER))
+        if (ROLLERSHUTTER.equals(itemTypeName))
             return new RollershutterItem(itemName);
-        if (itemTypeName.equals(CONTACT))
+        if (CONTACT.equals(itemTypeName))
             return new ContactItem(itemName);
-        if (itemTypeName.equals(STRING))
+        if (STRING.equals(itemTypeName))
             return new StringItem(itemName);
-        if (itemTypeName.equals(NUMBER))
+        if (NUMBER.equals(itemTypeName))
             return new NumberItem(itemName);
-        if (itemTypeName.equals(DIMMER))
+        if (DIMMER.equals(itemTypeName))
             return new DimmerItem(itemName);
-        if (itemTypeName.equals(DATETIME))
+        if (DATETIME.equals(itemTypeName))
             return new DateTimeItem(itemName);
-        if (itemTypeName.equals(COLOR))
+        if (COLOR.equals(itemTypeName))
             return new ColorItem(itemName);
-        if (itemTypeName.equals(IMAGE))
+        if (IMAGE.equals(itemTypeName))
             return new ImageItem(itemName);
-        if (itemTypeName.equals(PLAYER))
+        if (PLAYER.equals(itemTypeName))
             return new PlayerItem(itemName);
-        if (itemTypeName.equals(LOCATION))
+        if (LOCATION.equals(itemTypeName))
             return new LocationItem(itemName);
         else
             return null;

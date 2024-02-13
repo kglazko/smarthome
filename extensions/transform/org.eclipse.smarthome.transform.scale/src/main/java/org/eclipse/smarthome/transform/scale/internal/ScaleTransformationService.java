@@ -84,8 +84,8 @@ public class ScaleTransformationService extends AbstractFileTransformationServic
                 Matcher matcher = limits_pattern.matcher(key);
                 if (matcher.matches() && (matcher.groupCount() == 4)) {
 
-                    BoundType lowBoundType = matcher.group(1).equals("]") ? BoundType.OPEN : BoundType.CLOSED;
-                    BoundType highBoundType = matcher.group(4).equals("[") ? BoundType.OPEN : BoundType.CLOSED;
+                    BoundType lowBoundType = "]".equals(matcher.group(1)) ? BoundType.OPEN : BoundType.CLOSED;
+                    BoundType highBoundType = "[".equals(matcher.group(4)) ? BoundType.OPEN : BoundType.CLOSED;
 
                     String lowLimit = matcher.group(2);
                     String highLimit = matcher.group(3);

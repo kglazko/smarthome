@@ -260,7 +260,7 @@ public class WemoMakerHandler extends BaseThingHandler implements UpnpIOParticip
 
                             switch (attributeName) {
                                 case "Switch":
-                                    State relayState = attributeValue.equals("0") ? OnOffType.OFF : OnOffType.ON;
+                                    State relayState = "0".equals(attributeValue) ? OnOffType.OFF : OnOffType.ON;
                                     if (relayState != null) {
                                         logger.debug("New relayState '{}' for device '{}' received", relayState,
                                                 getThing().getUID());
@@ -269,7 +269,7 @@ public class WemoMakerHandler extends BaseThingHandler implements UpnpIOParticip
                                     }
                                     break;
                                 case "Sensor":
-                                    State sensorState = attributeValue.equals("1") ? OnOffType.OFF : OnOffType.ON;
+                                    State sensorState = "1".equals(attributeValue) ? OnOffType.OFF : OnOffType.ON;
                                     if (sensorState != null) {
                                         logger.debug("New sensorState '{}' for device '{}' received", sensorState,
                                                 getThing().getUID());

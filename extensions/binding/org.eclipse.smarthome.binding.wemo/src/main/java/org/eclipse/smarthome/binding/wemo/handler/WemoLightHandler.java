@@ -244,9 +244,9 @@ public class WemoLightHandler extends BaseThingHandler implements UpnpIOParticip
             if (wemoURL != null) {
                 String wemoCallResponse = WemoHttpCall.executeCall(wemoURL, soapHeader, content);
                 if (wemoCallResponse != null) {
-                    if (capability != null && capability.equals("10008") && value != null) {
+                    if (capability != null && "10008".equals(capability) && value != null) {
                         OnOffType binaryState = null;
-                        binaryState = value.equals("0") ? OnOffType.OFF : OnOffType.ON;
+                        binaryState = "0".equals(value) ? OnOffType.OFF : OnOffType.ON;
                         if (binaryState != null) {
                             updateState(
                                     new ChannelUID(getThing().getThingTypeUID(), getThing().getUID(), CHANNEL_STATE),
@@ -296,7 +296,7 @@ public class WemoLightHandler extends BaseThingHandler implements UpnpIOParticip
                     String[] splitResponse = response.split(",");
                     if (splitResponse[0] != null) {
                         OnOffType binaryState = null;
-                        binaryState = splitResponse[0].equals("0") ? OnOffType.OFF : OnOffType.ON;
+                        binaryState = "0".equals(splitResponse[0]) ? OnOffType.OFF : OnOffType.ON;
                         if (binaryState != null) {
                             updateState(
                                     new ChannelUID(getThing().getThingTypeUID(), getThing().getUID(), CHANNEL_STATE),
@@ -331,7 +331,7 @@ public class WemoLightHandler extends BaseThingHandler implements UpnpIOParticip
         switch (capabilityId) {
             case "10006":
                 OnOffType binaryState = null;
-                binaryState = newValue.equals("0") ? OnOffType.OFF : OnOffType.ON;
+                binaryState = "0".equals(newValue) ? OnOffType.OFF : OnOffType.ON;
                 if (binaryState != null) {
                     updateState(new ChannelUID(getThing().getThingTypeUID(), getThing().getUID(), CHANNEL_STATE),
                             binaryState);
