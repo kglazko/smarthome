@@ -40,7 +40,7 @@ public class ItemDTOMapper {
 
         GenericItem newItem = null;
         if (itemDTO.type != null) {
-            if (itemDTO.type.equals("GroupItem")) {
+            if ("GroupItem".equals(itemDTO.type)) {
                 newItem = new GroupItem(itemDTO.name);
             } else {
                 String itemType = itemDTO.type.substring(0, itemDTO.type.length() - 4);

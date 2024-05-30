@@ -63,8 +63,8 @@ public class ThreadPoolManager {
 
     protected void modified(Map<String, Object> properties) {
         for (Entry<String, Object> entry : properties.entrySet()) {
-            if (entry.getKey().equals("service.pid") || entry.getKey().equals("component.id")
-                    || entry.getKey().equals("component.name"))
+            if ("service.pid".equals(entry.getKey()) || "component.id".equals(entry.getKey())
+                    || "component.name".equals(entry.getKey()))
                 continue;
             String poolName = entry.getKey();
             Object config = entry.getValue();
